@@ -15,11 +15,9 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
 import testImage from "../app/assets/Leonardo_Phoenix_make_illustration_of_a_person_with_a_left_arr_1.jpg";
 import Image from 'next/image'
-import type { StaticImageData } from 'next/image';
-
 
 type ImageProps = {
-  src: string | StaticImageData;
+  src: string;
   alt?: string;
 };
 
@@ -51,7 +49,6 @@ export const Layout499 = (props: Layout499Props) => {
     ...props,
   } as Props;
   const [activeTab, setActiveTab] = useState(0);
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -133,7 +130,7 @@ export const Layout499Defaults: Layout499Props = {
       description:
         "Automatically filter and redirect reviews based on ratings. Keep constructive feedback under 4 stars private while your best reviews would be redirect on popular platforms like Google and TripAdvisor.",
       image: {
-        src: testImage,
+        src: "https://inmoment.com/wp-content/uploads/2023/11/blog-hero-Review-Management-An-Essential-Component-of-Modern-Marketing-1.jpg",
         alt: "Relume placeholder image 1",
       },
     },
