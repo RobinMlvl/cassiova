@@ -17,6 +17,7 @@ export default function Home() {
 
   return (
      <div>
+      <h1>test</h1>
       <Navbar5 isOpen={isOpen} setIsOpen={setIsOpen}/>
       <Header76 isOpen={isOpen} setIsOpen={setIsOpen}/>
        <Layout499/>
