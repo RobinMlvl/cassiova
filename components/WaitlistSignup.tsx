@@ -69,52 +69,52 @@ export const WaitlistSignup = (props) => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="text-gray-700">Email</label>
-                  <Input
+                  <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full mt-1"
+                    className="w-full mt-1 border rounded p-1"
                     placeholder="you@example.com"
                   />
                 </div>
                 <div>
                   <label className="text-gray-700">Name</label>
-                  <Input
+                  <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full mt-1"
+                    className="w-full mt-1 border rounded p-1"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
                   <label className="text-gray-700">Company Name (Optional)</label>
-                  <Input
+                  <input
                     type="text"
                     id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full mt-1"
+                    className="w-full mt-1 border rounded p-1"
                     placeholder="Acme Inc."
                   />
                 </div>
                 <div>
                   <label className="text-gray-700">Country</label>
-                  <Input
+                  <input
                     type="text"
                     id="country"
                     name="country"
                     value={formData.country}
                     onChange={handleInputChange}
                     required
-                    className="w-full mt-1"
+                    className="w-full mt-1 border rounded p-1"
                     placeholder="United States"
                   />
                 </div>
