@@ -102,7 +102,7 @@ export const Layout121Defaults: Layout121Props = {
   features: [
     {
       icon: {
-        src: one,
+        src: one.src,
         alt: "Relume icon 1",
       },
       heading: "Collect Reviews",
@@ -111,7 +111,7 @@ export const Layout121Defaults: Layout121Props = {
     },
     {
       icon: {
-        src: two,
+        src: two.src,
         alt: "Relume icon 2",
       },
       heading: "Smart Filtering",
@@ -120,7 +120,7 @@ export const Layout121Defaults: Layout121Props = {
     },
     {
       icon: {
-        src: three,
+        src: three.src,
         alt: "Relume icon 3",
       },
       heading: "Reward Engagement",
@@ -129,7 +129,7 @@ export const Layout121Defaults: Layout121Props = {
     },
     {
       icon: {
-        src: four,
+        src: four.src,
         alt: "Relume icon 4",
       },
       heading: "Analyze and Improve",
