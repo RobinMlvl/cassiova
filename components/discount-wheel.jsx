@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Wheel } from 'react-custom-roulette'
+import dynamic from 'next/dynamic'
 import { useForm } from 'react-hook-form'
 import { Button } from "./ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
@@ -9,6 +9,12 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Star } from "lucide-react"
 import Image from 'next/image';
+
+// Dynamically import the wheel with SSR disabled
+const Wheel = dynamic(
+  () => import('react-custom-roulette').then((mod) => mod.default),
+  { ssr: false }
+);
 
 const data = [
   { option: 'No discount', style: { backgroundColor: '#ff6961', textColor: 'white' } },
@@ -91,17 +97,19 @@ export default function DiscountWheel() {
           </form>
         ) : (
           <>
-            <Wheel
-              mustStartSpinning={mustSpin}
-              prizeNumber={prizeNumber}
-              data={data}
-              onStopSpinning={() => {
-                setMustSpin(false)
-                setResult(`You won: ${data[prizeNumber].option}`)
-              }}
-              backgroundColors={['#ff8f43', '#70bbe0', '#0b3351', '#f9dd50']}
-              textColors={['#ffffff']}
-            />
+            <div className="wheel-wrapper">
+              <Wheel
+                mustStartSpinning={mustSpin}
+                prizeNumber={prizeNumber}
+                data={data}
+                onStopSpinning={() => {
+                  setMustSpin(false)
+                  setResult(`You won: ${data[prizeNumber].option}`)
+                }}
+                backgroundColors={['#ff8f43', '#70bbe0', '#0b3351', '#f9dd50']}
+                textColors={['#ffffff']}
+              />
+            </div>
             <Button onClick={handleSpinClick} disabled={mustSpin}>
               {mustSpin ? 'Spinning...' : 'SPIN'}
             </Button>
