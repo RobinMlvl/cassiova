@@ -15,10 +15,11 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
 import testImage from "../app/assets/Leonardo_Phoenix_make_illustration_of_a_person_with_a_left_arr_1.jpg";
 import Image from 'next/image'
+import type { StaticImageData } from 'next/image';
 
 
 type ImageProps = {
-  src: string;
+  src: string | StaticImageData;
   alt?: string;
 };
 
