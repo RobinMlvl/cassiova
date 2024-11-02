@@ -68,7 +68,7 @@ export const WaitlistSignup = (props) => {
               <p className="text-gray-600 mb-6">Be the first to know when we launch!</p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Label htmlFor="email" className="text-gray-700">Email</Label>
+                  <label className="text-gray-700">Email</label>
                   <Input
                     type="email"
                     id="email"
@@ -81,7 +81,7 @@ export const WaitlistSignup = (props) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="name" className="text-gray-700">Name</Label>
+                  <label className="text-gray-700">Name</label>
                   <Input
                     type="text"
                     id="name"
@@ -94,7 +94,7 @@ export const WaitlistSignup = (props) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="company" className="text-gray-700">Company Name (Optional)</Label>
+                  <label className="text-gray-700">Company Name (Optional)</label>
                   <Input
                     type="text"
                     id="company"
@@ -106,7 +106,7 @@ export const WaitlistSignup = (props) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="country" className="text-gray-700">Country</Label>
+                  <label className="text-gray-700">Country</label>
                   <Input
                     type="text"
                     id="country"
@@ -117,19 +117,6 @@ export const WaitlistSignup = (props) => {
                     className="w-full mt-1"
                     placeholder="United States"
                   />
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="notifyUpdates"
-                    checked={formData.notifyUpdates}
-                    onCheckedChange={handleCheckboxChange}
-                  />
-                  <Label
-                    htmlFor="notifyUpdates"
-                    className="text-sm text-gray-600"
-                  >
-                    Notify me about product updates
-                  </Label>
                 </div>
                 <button
                   type="submit"
