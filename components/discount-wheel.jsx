@@ -8,8 +8,12 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Star } from "lucide-react"
 import Image from 'next/image';
-import WheelOfFortune from './wheel-of-fortune'
+import dynamic from 'next/dynamic'
 
+const WheelOfFortune = dynamic(() => import('./wheel-of-fortune'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+})
 
 export default function DiscountWheel() {
   const [showWheel, setShowWheel] = useState(false)
@@ -71,8 +75,7 @@ export default function DiscountWheel() {
             <Button type="submit" className="w-full bg-yellow-300 border-black text-black border">Submit & Play</Button>
           </form>
         )  : (
-         /*  <WheelOfFortune/> */
-         <h1>test</h1>
+         <WheelOfFortune />
         ) }
       </CardContent>
     </Card>
