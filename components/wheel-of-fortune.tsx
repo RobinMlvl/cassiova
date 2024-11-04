@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { Wheel } from 'react-custom-roulette'
-import confetti from 'canvas-confetti'
+// Import confetti dynamically
+import dynamic from 'next/dynamic'
+
+// Dynamically import confetti with SSR disabled
+const confetti = dynamic(() => import('canvas-confetti'), {
+  ssr: false,
+})
 
 export default function WheelOfFortune({ enableSound = false }) {
   const [mustSpin, setMustSpin] = useState(false)
@@ -40,12 +46,14 @@ export default function WheelOfFortune({ enableSound = false }) {
 
 
   useEffect(() => {
-    if (winner !== null) {
-      /*       if (enableSound) playWinSound() */
-      confetti({
-        particleCount: 1000,
-        spread: 100,
-        origin: { y: 0.7 }
+    if (winner !== null && typeof window !== 'undefined') {
+      // Only run confetti if we're in the browser
+      import('canvas-confetti').then((confetti) => {
+        confetti.default({
+          particleCount: 1000,
+          spread: 100,
+          origin: { y: 0.7 }
+        })
       })
     }
   }, [winner])
