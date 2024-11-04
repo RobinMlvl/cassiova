@@ -1,13 +1,6 @@
-import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
-import dynamic from 'next/dynamic'
-
-// Dynamically import the entire DiscountWheel component
-const DiscountWheel = dynamic(
-  () => import('./discount-wheel'),
-  { ssr: false }
-);
+import DiscountWheel from "./discount-wheel";
 
 type ImageProps = {
   src: string;

@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from 'react'
-import dynamic from 'next/dynamic'
 import { useForm } from 'react-hook-form'
 import { Button } from "./ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
@@ -9,12 +8,7 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Star } from "lucide-react"
 import Image from 'next/image';
-
-// Dynamically import the wheel with SSR disabled
-const Wheel = dynamic(
-  () => import('react-custom-roulette').then((mod) => mod.default),
-  { ssr: false }
-);
+import WheelOfFortune from './wheel-of-fortune'
 
 const data = [
   { option: 'No discount', style: { backgroundColor: '#ff6961', textColor: 'white' } },
@@ -26,21 +20,10 @@ const data = [
 ]
 
 export default function DiscountWheel() {
-  const [mustSpin, setMustSpin] = useState(false)
-  const [prizeNumber, setPrizeNumber] = useState(0)
-  const [result, setResult] = useState('')
   const [showWheel, setShowWheel] = useState(false)
   const [rating, setRating] = useState(0)
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const handleSpinClick = () => {
-    if (!mustSpin) {
-      const newPrizeNumber = Math.floor(Math.random() * data.length)
-      setPrizeNumber(newPrizeNumber)
-      setMustSpin(true)
-      setResult('')
-    }
-  }
 
   const onSubmit = (data) => {
     console.log(data) // Here you would typically send this data to your backend
@@ -96,29 +79,7 @@ export default function DiscountWheel() {
             <Button type="submit" className="w-full bg-yellow-300 border-black text-black border">Submit & Play</Button>
           </form>
         ) : (
-          <>
-            <div className="wheel-wrapper">
-              <Wheel
-                mustStartSpinning={mustSpin}
-                prizeNumber={prizeNumber}
-                data={data}
-                onStopSpinning={() => {
-                  setMustSpin(false)
-                  setResult(`You won: ${data[prizeNumber].option}`)
-                }}
-                backgroundColors={['#ff8f43', '#70bbe0', '#0b3351', '#f9dd50']}
-                textColors={['#ffffff']}
-              />
-            </div>
-            <Button onClick={handleSpinClick} disabled={mustSpin}>
-              {mustSpin ? 'Spinning...' : 'SPIN'}
-            </Button>
-            {result && (
-              <div className="text-center font-bold text-lg mt-4" aria-live="polite">
-                {result}
-              </div>
-            )}
-          </>
+          <WheelOfFortune/>
         )}
       </CardContent>
     </Card>

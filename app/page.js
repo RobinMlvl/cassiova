@@ -11,13 +11,13 @@ import { Navbar5 } from '../components/navSection.tsx'
 import { Footer7 } from '../components/footer.tsx'
 import { WaitlistSignup } from '../components/WaitlistSignup'
 import { useState } from 'react'
+import WheelOfFortune from '../components/wheel-of-fortune.tsx'
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
      <div>
-      <h1>test</h1>
       <Navbar5 isOpen={isOpen} setIsOpen={setIsOpen}/>
       <Header76 isOpen={isOpen} setIsOpen={setIsOpen}/>
        <Layout499/>
