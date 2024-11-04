@@ -10,14 +10,6 @@ import { Star } from "lucide-react"
 import Image from 'next/image';
 import WheelOfFortune from './wheel-of-fortune'
 
-const data = [
-  { option: 'No discount', style: { backgroundColor: '#ff6961', textColor: 'white' } },
-  { option: '5% OFF', style: { backgroundColor: '#77dd77', textColor: 'white' } },
-  { option: '10% OFF', style: { backgroundColor: '#fdfd96', textColor: 'black' } },
-  { option: '15% OFF', style: { backgroundColor: '#84b6f4', textColor: 'white' } },
-  { option: '20% OFF', style: { backgroundColor: '#fdcae1', textColor: 'black' } },
-  { option: '25% OFF', style: { backgroundColor: '#b39eb5', textColor: 'white' } },
-]
 
 export default function DiscountWheel() {
   const [showWheel, setShowWheel] = useState(false)
@@ -78,9 +70,10 @@ export default function DiscountWheel() {
             </div>
             <Button type="submit" className="w-full bg-yellow-300 border-black text-black border">Submit & Play</Button>
           </form>
-        ) : (
-          <WheelOfFortune/>
-        )}
+        )  : (
+         /*  <WheelOfFortune/> */
+         <h1>test</h1>
+        ) }
       </CardContent>
     </Card>
   )
