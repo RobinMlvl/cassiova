@@ -3,6 +3,8 @@
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
 import dynamic from 'next/dynamic'
+/* import Image from 'next/image'
+import Qr from '../app/assets/frame.png' */
 
 const DiscountWheel = dynamic(() => import('./discount-wheel'), {
   ssr: false
@@ -42,6 +44,14 @@ export const Layout141 = (props: Layout141Props) => {
           </div>
           <div>
             <DiscountWheel/>
+           {/*  <Image
+      src={Qr}
+      alt="qr code"
+      // width={500} automatically provided
+      // height={500} automatically provided
+      // blurDataURL="data:..." automatically provided
+      // placeholder="blur" // Optional blur-up while loading
+    /> */}
           </div>
         </div>
       </div>
